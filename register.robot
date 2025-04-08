@@ -12,8 +12,8 @@ ${BASE_URL}     https://localhost:7262/api/Auth
 ${HEADERS}      {"Content-Type": "application/json"}
 
 *** Test Cases ***
-Fazer o Registro de User com Sucesso
-    [Documentation]    Teste de registro de usuário com sucesso
+Register User Successfully
+    [Documentation]    Test case to verify successful user registration with valid data.
     ${HEADERS}=  Create Dictionary   Content-Type=application/json
     ${BODY}=     Create Dictionary   fullname=joao   password=senhaSegura123   email=testes@gmail.com
     Create Session    minha_sessao    ${BASE_URL}    verify=False
@@ -21,8 +21,8 @@ Fazer o Registro de User com Sucesso
     Should Be Equal As Strings    ${response.status_code}    200
     Log    ${response.json()}
 
-Fazer o Registro de User com Errado
-    [Documentation]    Teste de registro de usuário com fullname vazio (espera 400)
+Register User with Empty Fullname
+    [Documentation]    Test case to verify user registration fails when 'fullname' is empty. Expected status code: 400.
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     ${BODY}=       Create Dictionary    fullname=    password=senhaSegura123    email=tesstses@gmail.com
     Create Session    minha_sessao    ${BASE_URL}    verify=False
@@ -33,8 +33,8 @@ Fazer o Registro de User com Errado
     ${json_body}=    Set Variable    ${response.json()}
     Should Contain    ${json_body["erros"][0]}    O campo 'FullName' é obrigatório.
 
-Fazer o Registro de Email com Errado
-    [Documentation]    Teste de registro de usuário com fullname vazio (espera 400)
+Register User with Empty Email
+    [Documentation]    Test case to verify user registration fails when 'email' is empty. Expected status code: 400.
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     ${BODY}=       Create Dictionary    fullname=teste    password=senhaSegura123    email=
     Create Session    minha_sessao    ${BASE_URL}    verify=False
