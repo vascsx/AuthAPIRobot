@@ -6,7 +6,7 @@ Library    JSONLibrary
 Resource   ../variables/login_variables.robot
 Resource   ../keywords/auth_keywords.robot
 
-*** Keywords ***
+*** Test Cases ***
 
 Login User Successfully
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
