@@ -1,6 +1,7 @@
 *** Variables ***
 ${BASE_URL}                        https://localhost:7262/api
 ${EMPTY}
+${LOGIN_URL}                       /Auth/login
 
 # Success Login Body
 @{BODY_VALID_LOGIN}               email    automacao@gmail.com    password    vasconcelos

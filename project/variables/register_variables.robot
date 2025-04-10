@@ -1,6 +1,7 @@
 *** Variables ***
 ${BASE_URL}                  https://localhost:7262/api
 ${EMPTY}
+${REGISTER_URL}             /Auth/register
 
 @{BODY_SUCESS}              fullname    joao    password    senhaSegura123    email    testes@gmail.com
 
