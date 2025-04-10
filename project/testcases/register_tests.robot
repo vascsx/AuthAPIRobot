@@ -4,7 +4,7 @@ Library    RequestsLibrary
 Library    BuiltIn
 Library    JSONLibrary
 Resource   ../variables/register_variables.robot
-Resource   ../keywords/register_keywords.robot
+Resource   ../keywords/auth_keywords.robot
 
 *** Test Cases ***
 
