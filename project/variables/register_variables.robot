@@ -14,7 +14,7 @@ ${REGISTER_URL}             /Auth/register
 @{BODY_INVALID_FULLNAME}      fullname    Anderson123    password    senhaSegura123    email    tesstses@gmail.com
 @{BODY_INVALID_EMAIL}         fullname    teste    password    senhaSegura123    email    anderson@.com
 @{BODY_INVALID_PASSWORD}      fullname    teste    password    eses    email    testesss@gmail.com
-@{BODY_ALREADY_EMAIL}      fullname    teste    password    teste1232    email    testes@gmail.com
+@{BODY_ALREADY_EMAIL}         fullname    teste    password    teste1232    email    testes@gmail.com
 
 # Error Messages empty
 
@@ -27,4 +27,4 @@ ${ERROR_EMPTY_PASSWORD}     O campo 'Password' é obrigatório.
 ${ERROR_INVALID_EMAIL}     O campo 'Email' não é válido.
 ${ERROR_INVALID_PASSWORD}  A senha deve ter no mínimo 6 caracteres.
 ${ERROR_INVALID_FULLNAME}  O campo 'FullName' deve conter apenas letras e espaços, sem números.
-${ERROR_ALREADY_EMAIL}  E-mail já cadastrado.
+${ERROR_ALREADY_EMAIL}     E-mail já cadastrado.
