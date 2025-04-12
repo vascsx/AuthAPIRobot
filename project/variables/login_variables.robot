@@ -4,7 +4,7 @@ ${EMPTY}
 ${LOGIN_URL}                       /Auth/login
 
 # Success Login Body
-@{BODY_VALID_LOGIN}               email    automacao@gmail.com    password    vasconcelos
+@{BODY_VALID_LOGIN}               email    anderson@gmail.com    password    meuamor
 
 # Invalid Body
 @{BODY_EMPTY_EMAIL}             email    ${EMPTY}    password    senhaSegura123
@@ -19,4 +19,4 @@ ${ERROR_EMPTY_EMAIL_OR_PASSWORD}      E-mail e senha são obrigatórios.
 ${ERROR_INVALID_CREDENTIALS}          E-mail ou senha inválidos.
 
 # Success Message
-${SUCCESS_WELCOME_MESSAGE}            Bem-vindo Automação Teste!
+${SUCCESS_WELCOME_MESSAGE}            Bem-vindo Anderson Vasconcelos!

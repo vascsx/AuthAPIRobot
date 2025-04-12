@@ -3,7 +3,7 @@ ${BASE_URL}                  https://localhost:7262/api
 ${EMPTY}
 ${REGISTER_URL}             /Auth/register
 
-@{BODY_SUCESS}              fullname    joao    password    senhaSegura123    email    testes@gmail.com
+@{BODY_SUCESS}              fullname    joaso    password    senhaSegura123    email    testewws@gmail.com
 
 # Body empty
 @{BODY_EMPTY_FULLNAME}      fullname    ${EMPTY}    password    senhaSegura123    email    tesstses@gmail.com

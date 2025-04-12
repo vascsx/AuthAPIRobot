@@ -2,7 +2,6 @@
 Library    Collections
 Library    RequestsLibrary
 Library    BuiltIn
-Library    JSONLibrary
 Resource   ../variables/register_variables.robot
 Resource   ../keywords/auth_keywords.robot
 
