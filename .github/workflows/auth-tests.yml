@@ -32,7 +32,7 @@ jobs:
           robot --outputdir reports project/tests
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: robot-reports
           path: reports
