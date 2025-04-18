@@ -30,7 +30,7 @@ Edit Already Registered Email
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     ${BODY}=       Create Dictionary    @{BODY_INVALID_EDIT}
     Create Default Session    my_session
-    ${response}=   Put On Session    my_session    /Auth/edit/2004    headers=${HEADERS}    json=${BODY}   expected_status=400
+    ${response}=   Put On Session    my_session    /Auth/edit/54    headers=${HEADERS}    json=${BODY}   expected_status=400
     Should Be Equal As Strings    ${response.status_code}    400
     ${json_body}=  Set Variable    ${response.json()}
     Should Contain    ${json_body["erros"]}    ${EDIT_EMAIL_INVALID}
@@ -40,7 +40,7 @@ Edit Empty Email
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     ${BODY}=       Create Dictionary    @{BODY_EMPTY_EMAIL}
     Create Default Session    my_session
-    ${response}=   Put On Session    my_session    /Auth/edit/2004    headers=${HEADERS}    json=${BODY}   expected_status=400
+    ${response}=   Put On Session    my_session    /Auth/edit/54    headers=${HEADERS}    json=${BODY}   expected_status=400
     Should Be Equal As Strings    ${response.status_code}    400
     ${json_body}=  Set Variable    ${response.json()}
     Should Contain    ${json_body["erros"]}    ${ERROR_EMPTY_EMAIL}
@@ -52,7 +52,7 @@ Edit Empty Password
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     ${BODY}=       Create Dictionary    @{BODY_EMPTY_PASSWORD}
     Create Default Session    my_session
-    ${response}=   Put On Session    my_session    /Auth/edit/2004    headers=${HEADERS}    json=${BODY}   expected_status=400
+    ${response}=   Put On Session    my_session    /Auth/edit/54    headers=${HEADERS}    json=${BODY}   expected_status=400
     Should Be Equal As Strings    ${response.status_code}    400
     ${json_body}=  Set Variable    ${response.json()}
     Should Contain    ${json_body["erros"]}    ${ERROR_EMPTY_PASSWORD}

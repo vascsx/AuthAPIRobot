@@ -4,7 +4,7 @@ ${EMPTY}
 
 
 @{BODY_VALID_EDIT}        fullname    teste    password    senhaSegura123    email    vascs@gmail.com
-@{BODY_INVALID_EDIT}        fullname    teste    password    senhaSegura123    email    testes@gmail.com
+@{BODY_INVALID_EDIT}        fullname    teste    password    senhaSegura123    email    automacao@gmail.com
 
 
 @{BODY_EMPTY_FULLNAME}      fullname    ${EMPTY}    password    senhaSegura123    email    tesstses@gmail.com
