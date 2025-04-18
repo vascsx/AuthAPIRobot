@@ -1,5 +1,5 @@
 *** Variables ***
-${BASE_URL}                        https://localhost:7262/api
+${BASE_URL}                        http://10.0.0.12:8080/api
 ${EMPTY}
 ${LOGIN_URL}                       /Auth/login
 
