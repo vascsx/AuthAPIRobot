@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'results/**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -25,8 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework
         pip install robotframework-requests
-        # Add more libraries if needed:
-        # pip install robotframework-seleniumlibrary
 
     - name: Run Robot Framework tests
       run: |
@@ -34,7 +33,7 @@ jobs:
         robot --outputdir results project/tests/
 
     - name: Upload Robot Framework results
-      if: always() # Upload results even if tests fail
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: robot-results
