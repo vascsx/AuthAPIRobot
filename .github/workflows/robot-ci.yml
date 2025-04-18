@@ -24,7 +24,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework
         pip install robotframework-requests
+        # Add more libraries if needed:
+        # pip install robotframework-seleniumlibrary
 
     - name: Run Robot Framework tests
       run: |
-        robot project/tests/
+        mkdir -p results
+        robot --outputdir results project/tests/
+
+    - name: Upload Robot Framework results
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: robot-results
+        path: results/
