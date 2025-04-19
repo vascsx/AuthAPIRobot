@@ -19,4 +19,4 @@ ${ERROR_EMPTY_EMAIL_OR_PASSWORD}      E-mail e senha são obrigatórios.
 ${ERROR_INVALID_CREDENTIALS}          E-mail ou senha inválidos.
 
 # Success Message
-${SUCCESS_WELCOME_MESSAGE}            Bem-vindo Automação teste!
+${SUCCESS_WELCOME_MESSAGE}            Bem-vindo Anderson Vasconcelos!

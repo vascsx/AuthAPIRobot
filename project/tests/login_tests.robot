@@ -9,7 +9,7 @@ Resource   ../keywords/auth_keywords.robot
 
 Login User Successfully
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    @{BODY_VALID_LOGIN}
+    ${BODY}=       Create Dictionary    &{BODY_VALID_LOGIN}
     Create Default Session    my_session
     ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    
     Should Be Equal As Strings    ${response.status_code}    200
@@ -18,7 +18,7 @@ Login User Successfully
 
 Login User Empty Password
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    @{BODY_EMPTY_PASSWORD}
+    ${BODY}=       Create Dictionary    &{BODY_EMPTY_PASSWORD}
     Create Default Session    my_session
     ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=any
     Should Be Equal As Strings    ${response.status_code}    401
@@ -27,7 +27,7 @@ Login User Empty Password
 
 Login User Empty Email
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    @{BODY_EMPTY_EMAIL}
+    ${BODY}=       Create Dictionary    &{BODY_EMPTY_EMAIL}
     Create Default Session    my_session
     ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
     Should Be Equal As Strings    ${response.status_code}    401
@@ -36,7 +36,7 @@ Login User Empty Email
 
 Login User Unathorized Email
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    @{BODY_UNATHORIZED_EMAIL}
+    ${BODY}=       Create Dictionary    &{BODY_UNATHORIZED_EMAIL}
     Create Default Session    my_session
     ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
     Should Be Equal As Strings    ${response.status_code}    401
@@ -45,7 +45,7 @@ Login User Unathorized Email
 
 Login User Unathorized Password
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    @{BODY_UNATHORIZED_PASSWORD}
+    ${BODY}=       Create Dictionary    &{BODY_UNATHORIZED_PASSWORD}
     Create Default Session    my_session
     ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
     Should Be Equal As Strings    ${response.status_code}    401
