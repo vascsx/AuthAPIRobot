@@ -18,7 +18,7 @@ Delete User Not Found
 Delete User Successfully
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     Create Default Session    my_session
-    ${response}=   Delete On Session    my_session    Auth/delete/1003   headers=${HEADERS}     expected_status=200   
+    ${response}=   Delete On Session    my_session    Auth/delete/3   headers=${HEADERS}     expected_status=200   
     Should Be Equal As Strings    ${response.status_code}    200
     ${json_body}=  Set Variable    ${response.json()}
     Should Contain    ${json_body["mensagem"]}    ${DELETE_SUCESS}
