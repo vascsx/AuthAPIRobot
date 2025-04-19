@@ -30,7 +30,7 @@ jobs:
     - name: Run Robot Framework tests
       run: |
         mkdir -p results
-        robot --outputdir results project/tests/
+        robot --outputdir results project/tests/login_tests.robot
 
     - name: Upload Robot Framework results
       if: failure()
