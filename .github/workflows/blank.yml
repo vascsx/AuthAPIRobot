@@ -1,12 +1,10 @@
-name: Robot Framework CI
+name: Robot Framework Requests Tests
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   test:
@@ -30,10 +28,10 @@ jobs:
     - name: Run Robot Framework tests
       run: |
         mkdir -p results
-        robot --outputdir results ./project/tests/
+        robot --outputdir results project/tests/
 
     - name: Upload Robot Framework results
-      if: always()
+      if: failure()
       uses: actions/upload-artifact@v4
       with:
         name: robot-results
