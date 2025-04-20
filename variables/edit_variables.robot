@@ -1,5 +1,5 @@
 *** Variables ***
-${BASE_URL}                        http://10.0.0.12:8080/api
+${BASE_URL}                        http://10.0.0.16:8080/api
 ${EMPTY}
 
 

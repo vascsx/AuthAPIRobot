@@ -3,7 +3,7 @@ Library    Collections
 Library    RequestsLibrary
 Library    BuiltIn
 Resource   ../variables/edit_variables.robot
-Resource   ../keywords/auth_keywords.robot
+Resource   ../resources/keywords/auth_keywords.robot
 
 *** Test Cases ***
 Edit User Test

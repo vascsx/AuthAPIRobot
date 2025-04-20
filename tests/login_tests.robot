@@ -3,54 +3,32 @@ Library    Collections
 Library    RequestsLibrary
 Library    BuiltIn
 Resource   ../variables/login_variables.robot
-Resource   ../keywords/auth_keywords.robot
+Resource   ../resources/keywords/login_keywords.robot
+Resource   ../resources/keywords/auth_keywords.robot
 
 *** Test Cases ***
 
 Login User Successfully
-    ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    &{BODY_VALID_LOGIN}
-    Create Default Session    my_session
-    ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    
-    Should Be Equal As Strings    ${response.status_code}    200
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["mensagem"]}    ${SUCCESS_WELCOME_MESSAGE}
+    ${HEADERS}    ${BODY}=    Preparar Requisição de Login    ${BODY_VALID_LOGIN}
+    ${response}=    Enviar dados de Login    ${HEADERS}    ${BODY}
+    Validar Resposta do Login    ${response}    200    ${SUCCESS_WELCOME_MESSAGE}    mensagem
 
 Login User Empty Password
-    ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    &{BODY_EMPTY_PASSWORD}
-    Create Default Session    my_session
-    ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=any
-    Should Be Equal As Strings    ${response.status_code}    401
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["erro"]}    ${ERROR_EMPTY_EMAIL_OR_PASSWORD}
+    ${HEADERS}    ${BODY}=    Preparar Requisição de Login    ${BODY_EMPTY_PASSWORD}
+    ${response}=    Enviar dados de Login    ${HEADERS}    ${BODY}
+    Validar Resposta do Login    ${response}    401    ${ERROR_EMPTY_EMAIL_OR_PASSWORD}
 
 Login User Empty Email
-    ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    &{BODY_EMPTY_EMAIL}
-    Create Default Session    my_session
-    ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
-    Should Be Equal As Strings    ${response.status_code}    401
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["erro"]}    ${ERROR_EMPTY_EMAIL_OR_PASSWORD}
+    ${HEADERS}    ${BODY}=    Preparar Requisição de Login    ${BODY_EMPTY_EMAIL}
+    ${response}=    Enviar dados de Login    ${HEADERS}    ${BODY}
+    Validar Resposta do Login    ${response}    401    ${ERROR_EMPTY_EMAIL_OR_PASSWORD}
 
-Login User Unathorized Email
-    ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    &{BODY_UNATHORIZED_EMAIL}
-    Create Default Session    my_session
-    ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
-    Should Be Equal As Strings    ${response.status_code}    401
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["erro"]}    ${ERROR_INVALID_CREDENTIALS}
+Login User Unauthorized Email
+    ${HEADERS}    ${BODY}=    Preparar Requisição de Login    ${BODY_UNATHORIZED_EMAIL}
+    ${response}=    Enviar dados de Login    ${HEADERS}    ${BODY}
+    Validar Resposta do Login    ${response}    401    ${ERROR_INVALID_CREDENTIALS}
 
-Login User Unathorized Password
-    ${HEADERS}=    Create Dictionary    Content-Type=application/json
-    ${BODY}=       Create Dictionary    &{BODY_UNATHORIZED_PASSWORD}
-    Create Default Session    my_session
-    ${response}=   POST On Session    my_session    ${LOGIN_URL}    headers=${HEADERS}    json=${BODY}    expected_status=401
-    Should Be Equal As Strings    ${response.status_code}    401
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["erro"]}    ${ERROR_INVALID_CREDENTIALS}
-
-
-
+Login User Unauthorized Password
+    ${HEADERS}    ${BODY}=    Preparar Requisição de Login    ${BODY_UNATHORIZED_PASSWORD}
+    ${response}=    Enviar dados de Login    ${HEADERS}    ${BODY}
+    Validar Resposta do Login    ${response}    401    ${ERROR_INVALID_CREDENTIALS}
