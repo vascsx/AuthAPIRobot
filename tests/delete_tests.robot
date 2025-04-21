@@ -10,16 +10,13 @@ Resource   ../resources/keywords/auth_keywords.robot
 Delete User Not Found
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     Create Default Session    my_session
-    ${response}=   Delete On Session    my_session    Auth/delete/${id}    headers=${HEADERS}     expected_status=404   
-    Should Be Equal As Strings    ${response.status_code}    404
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["erro"]}    ${DELETE_NOT_FOUND}
+    ${response} =  Enviar dados de Deleção  ${HEADERS}  1000
+    Validar Resposta da API  ${response}  404  ${DELETE_NOT_FOUND}  erro
 
 Delete User Successfully
     ${HEADERS}=    Create Dictionary    Content-Type=application/json
     Create Default Session    my_session
-    ${response}=   Delete On Session    my_session    Auth/delete/3   headers=${HEADERS}     expected_status=200   
-    Should Be Equal As Strings    ${response.status_code}    200
-    ${json_body}=  Set Variable    ${response.json()}
-    Should Contain    ${json_body["mensagem"]}    ${DELETE_SUCESS}
+    ${response} =  Enviar dados de Deleção   ${HEADERS}  2
+    Validar Resposta da API  ${response}  200  ${DELETE_SUCESS}  mensagem
+
 

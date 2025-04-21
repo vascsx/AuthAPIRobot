@@ -34,3 +34,10 @@ Enviar dados de Edição
     Create Default Session    my_session    ${BASE_URL}
     ${response}=   PUT On Session    my_session    ${EDIT_URL}/${id}    headers=${HEADERS}    json=${BODY}     expected_status=any
     [Return]       ${response}
+
+
+Enviar dados de Deleção
+    [Arguments]    ${HEADERS}    ${id}
+    Create Default Session    my_session    ${BASE_URL}
+    ${response}=   Delete On Session    my_session    ${DELETE_URL}/${id}    headers=${HEADERS}    expected_status=any
+    [Return]       ${response}

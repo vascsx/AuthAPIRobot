@@ -1,6 +1,6 @@
 *** Variables ***
 ${BASE_URL}                        http://10.0.0.16:8080/api
-${id}                        4
+${DELETE_URL}                        /Auth/delete
 
 # Error Messages Invalid
 ${DELETE_NOT_FOUND}      Usuário não encontrado.
